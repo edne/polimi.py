@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/RicercaAuleLibere.do?\
 jaf_currentWFID=main'
@@ -36,8 +37,6 @@ separator = '--' + boundary + '\n'
 
 query = separator + separator.join(lines) + '\n' + '--' + boundary + '--'
 
-# print(query)
-
 headers = requests.utils.default_headers()
 headers.update({
     'User-Agent': 'Mozilla/5.0',
@@ -46,4 +45,8 @@ headers.update({
 })
 
 r = requests.post(url, headers=headers, data=query)
-print(r.text)
+
+soup = BeautifulSoup(r.text, 'html.parser')
+
+aule = [node.text for node in soup.find_all('b')]
+print('\n'.join(aule))
