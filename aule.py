@@ -1,15 +1,10 @@
+from datetime import date, time
 from pprint import pprint
 import requests
 from bs4 import BeautifulSoup
 
-day = '10'
-month = '5'
-year = '2017'
-time_from = '10:15'
-time_to = '11:15'
 
-
-def get_page():
+def get_page(day, month, year, time_from, time_to):
     url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/'\
           'RicercaAuleLibere.do?jaf_currentWFID=main'
 
@@ -106,10 +101,24 @@ def parse_page(page):
     return classrooms
 
 
-# page = get_page()
-# save_page('page.html', page)
+def get_free_classrooms(day, time_from, time_to):
+    page = get_page(str(day.day),
+                    str(day.month),
+                    str(day.year),
+                    time_from.strftime('%H:%M'),
+                    time_to.strftime('%H:%M'))
+    return page
 
-page = get_page_from_file('page.html')
+
+day = date(2017, 5, 15)
+time_from = time(10, 15)
+time_to = time(11, 15)
+
+page = get_free_classrooms(day, time_from, time_to)
+
+# save_page('page.html', page)
+# page = get_page_from_file('page.html')
+
 classrooms = parse_page(page)
 
 pprint(classrooms)
