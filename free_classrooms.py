@@ -2,6 +2,7 @@ from datetime import date, time
 from pprint import pprint
 import requests
 from bs4 import BeautifulSoup
+from joblib import Memory
 
 
 def get_page(day, month, year, time_from, time_to):
@@ -58,17 +59,6 @@ def get_page(day, month, year, time_from, time_to):
     return r.text
 
 
-def get_page_from_file(file_name):
-    with open(file_name) as f:
-        page = f.read()
-    return page
-
-
-def save_page(file_name, page):
-    with open(file_name, "w") as f:
-        f.write(page)
-
-
 def get_cols(row):
     return row.find_all('td')
 
@@ -101,24 +91,28 @@ def parse_page(page):
     return classrooms
 
 
+memory = Memory(cachedir='cache')
+
+
+@memory.cache
 def get_free_classrooms(day, time_from, time_to):
     page = get_page(str(day.day),
                     str(day.month),
                     str(day.year),
                     time_from.strftime('%H:%M'),
                     time_to.strftime('%H:%M'))
-    return page
+    classrooms = parse_page(page)
+    return classrooms
 
 
 day = date(2017, 5, 15)
 time_from = time(10, 15)
 time_to = time(11, 15)
 
-page = get_free_classrooms(day, time_from, time_to)
+classrooms = get_free_classrooms(day, time_from, time_to)
+if not classrooms:
+    # TODO: handle invalid server response
+    get_free_classrooms.clear()
 
-# save_page('page.html', page)
-# page = get_page_from_file('page.html')
-
-classrooms = parse_page(page)
 
 pprint(classrooms)
