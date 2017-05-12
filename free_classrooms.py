@@ -1,41 +1,9 @@
 from datetime import date, time
 from pprint import pprint
-from bs4 import BeautifulSoup
 from joblib import Memory
 
 from queries import query_free_classrooms
-
-
-def get_cols(row):
-    return row.find_all('td')
-
-
-def parse_col(col):
-    text = col.text
-    text = text.split()
-    text = ' '.join(text)
-    return text
-
-
-def get_classroom(row):
-    cols = get_cols(row)
-    parsed = [parse_col(col) for col in cols]
-    where, name, details, category, type_, department = parsed
-    return {'where': where,
-            'name': name,
-            'category': category,
-            'type': type_,
-            'department': department}
-
-
-def parse_classrooms_list_page(page):
-    soup = BeautifulSoup(page, 'html.parser')
-    rows = soup.find_all('tr')
-
-    classrooms = [get_classroom(row)
-                  for row in rows
-                  if len(get_cols(row)) == 6]
-    return classrooms
+from parsers import parse_classrooms_list_page
 
 
 memory = Memory(cachedir='cache')
