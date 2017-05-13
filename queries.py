@@ -53,3 +53,37 @@ def query_free_classrooms(day, month, year, time_from, time_to):
     r = requests.post(url, headers=headers, data=payload)
 
     return r.text
+
+
+def query_classrooms_list(name_to_query):
+    url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/RicercaAula.do'
+
+    key_head = 'spazi___model___formbean___RicercaAvanzataAuleVO___'
+
+    params = {
+        'postBack': 'true',
+        'formMode': 'FILTER',
+        'sede': 'tutte',
+        'sigla': name_to_query,
+        'categoriaScelta': 'tutte',
+        'tipologiaScelta': 'tutte',
+        'iddipScelto': 'tutti',
+        'soloPreseElettriche_default': 'N',
+        'soloPreseDiRete_default': 'N',
+    }
+
+    # prepend key_head to each param
+    params = {key_head + key: value
+              for key, value in params.items()}
+
+    params['evn_ricerca_avanzata'] = 'Ricerca+aula'
+    params['default_event'] = 'evn_ricerca_aula_semplice'
+
+    headers = requests.utils.default_headers()
+    headers.update({
+        'User-Agent': 'Mozilla/5.0',
+    })
+
+    r = requests.get(url, headers=headers, params=params)
+
+    return r.text
