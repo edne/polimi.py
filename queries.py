@@ -1,11 +1,40 @@
 import requests
 
 
+def make_headers():
+    headers = requests.utils.default_headers()
+    headers.update({
+        'User-Agent': 'Mozilla/5.0',
+    })
+    return headers
+
+
+def prepend_params(params, action):
+    key_head = 'spazi___model___formbean___{}VO___'.format(action)
+
+    # prepend key_head to each param
+    params = {key_head + key: value
+              for key, value in params.items()}
+
+    return params
+
+
+def make_post_payload(params, boundary):
+    def format_line(key, value):
+        return 'Content-Disposition: form-data; name="{}"\n\n{}\n'\
+                .format(key, value)
+
+    lines = [format_line(key, value)
+             for (key, value) in params.items()]
+
+    separator = '--' + boundary + '\n'
+    payload = separator + separator.join(lines) + '\n' + '--' + boundary + '--'
+    return payload
+
+
 def query_free_classrooms(day, month, year, time_from, time_to):
     url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/'\
-          'RicercaAuleLibere.do?jaf_currentWFID=main'
-
-    key_head = 'spazi___model___formbean___RicercaAvanzataAuleLibereVO___'
+          'RicercaAuleLibere.do'
 
     params = {
         'postBack': 'true',
@@ -24,41 +53,24 @@ def query_free_classrooms(day, month, year, time_from, time_to):
         'soloPreseDiRete_default': 'N',
         'giorno_date_format': 'dd/MM/yyyy',
     }
-
-    # prepend key_head to each param
-    params = {key_head + key: value
-              for key, value in params.items()}
+    params = prepend_params(params, 'RicercaAvanzataAuleLibere')
 
     params['evn_ricerca_avanzata'] = 'Ricerca aule libere'
 
-    def format_line(key, value):
-        return 'Content-Disposition: form-data; name="{}"\n\n{}\n'\
-                .format(key, value)
+    boundary = '--lol'
+    payload = make_post_payload(params, boundary)
 
-    lines = [format_line(key, value)
-             for (key, value) in params.items()]
-
-    boundary = '----WebKitFormBoundary6baWbSkLbdhksRAi'
-    separator = '--' + boundary + '\n'
-
-    payload = separator + separator.join(lines) + '\n' + '--' + boundary + '--'
-
-    headers = requests.utils.default_headers()
+    headers = make_headers()
     headers.update({
-        'User-Agent': 'Mozilla/5.0',
-        'Content-Type': 'multipart/form-data; boundary={}'.format(boundary),
-        'Content-Length': str(len(payload))
+        'Content-Type': 'multipart/form-data; boundary=' + boundary,
     })
 
     r = requests.post(url, headers=headers, data=payload)
-
     return r.text
 
 
 def query_classrooms_list(name_to_query):
     url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/RicercaAula.do'
-
-    key_head = 'spazi___model___formbean___RicercaAvanzataAuleVO___'
 
     params = {
         'postBack': 'true',
@@ -71,19 +83,10 @@ def query_classrooms_list(name_to_query):
         'soloPreseElettriche_default': 'N',
         'soloPreseDiRete_default': 'N',
     }
-
-    # prepend key_head to each param
-    params = {key_head + key: value
-              for key, value in params.items()}
+    params = prepend_params(params, 'RicercaAvanzataAule')
 
     params['evn_ricerca_avanzata'] = 'Ricerca+aula'
     params['default_event'] = 'evn_ricerca_aula_semplice'
 
-    headers = requests.utils.default_headers()
-    headers.update({
-        'User-Agent': 'Mozilla/5.0',
-    })
-
-    r = requests.get(url, headers=headers, params=params)
-
+    r = requests.get(url, headers=make_headers(), params=params)
     return r.text

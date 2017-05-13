@@ -41,6 +41,6 @@ def test_free_classrooms():
 
 
 if __name__ == '__main__':
-    # test_free_classrooms()
-    classrooms = get_classroom_list('eg')
-    pprint(classrooms)
+    test_free_classrooms()
+    # classrooms = get_classroom_list('eg')
+    # pprint(classrooms)
