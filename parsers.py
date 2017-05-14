@@ -35,7 +35,7 @@ def get_classroom(row):
             'department': department}
 
 
-def parse_classrooms(page):
+def parse_classroom_list(page):
     soup = BeautifulSoup(page, 'html.parser')
     rows = soup.find_all('tr')
 
