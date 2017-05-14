@@ -3,27 +3,23 @@ from pprint import pprint
 from joblib import Memory
 
 from queries import query_free_classrooms, query_classrooms_list
-from parsers import parse_classrooms_list_page
+from parsers import parse_classrooms
 
 
 memory = Memory(cachedir='cache')
 
 
 @memory.cache
-def get_free_classrooms(day, time_from, time_to):
-    page = query_free_classrooms(str(day.day),
-                                 str(day.month),
-                                 str(day.year),
-                                 time_from.strftime('%H:%M'),
-                                 time_to.strftime('%H:%M'))
-    classrooms = parse_classrooms_list_page(page)
+def get_free_classrooms(date, time_from, time_to):
+    page = query_free_classrooms(date, time_from, time_to)
+    classrooms = parse_classrooms(page)
     return classrooms
 
 
 @memory.cache
-def get_classroom_list(name_to_query):
+def get_classroom(name_to_query):
     page = query_classrooms_list('eg')
-    classrooms = parse_classrooms_list_page(page)
+    classrooms = parse_classrooms(page)
     return classrooms
 
 
@@ -40,7 +36,22 @@ def test_free_classrooms():
     pprint(classrooms)
 
 
+def save_classrooms_page():
+    page = query_classrooms_list('eg')
+    with open('classrooms.html', 'w') as f:
+        f.write(page)
+
+
+def load_classrooms_page():
+    with open('classrooms.html') as f:
+        return f.read()
+
+
+def test_classrooms():
+    classrooms = get_classroom('eg')
+    pprint(classrooms)
+
+
 if __name__ == '__main__':
     test_free_classrooms()
-    # classrooms = get_classroom_list('eg')
-    # pprint(classrooms)
+    # test_classrooms()

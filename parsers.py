@@ -23,10 +23,11 @@ def get_classroom(row):
             'department': department}
 
 
-def parse_classrooms_list_page(page):
+def parse_classrooms(page):
     soup = BeautifulSoup(page, 'html.parser')
     rows = soup.find_all('tr')
 
+    # TODO: xpath
     classrooms = [get_classroom(row)
                   for row in rows
                   if len(get_cols(row)) == 6]

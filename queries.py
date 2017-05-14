@@ -32,7 +32,14 @@ def make_post_payload(params, boundary):
     return payload
 
 
-def query_free_classrooms(day, month, year, time_from, time_to):
+def query_free_classrooms(date, time_from, time_to):
+    day = str(date.day)
+    month = str(date.month)
+    year = str(date.year)
+
+    time_from = time_from.strftime('%H:%M')
+    time_to = time_to.strftime('%H:%M')
+
     url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/'\
           'RicercaAuleLibere.do'
 
