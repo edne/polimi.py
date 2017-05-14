@@ -38,12 +38,12 @@ def test_free_classrooms():
 
 def save_classrooms_page():
     page = query_classrooms_list('eg')
-    with open('classrooms.html', 'w') as f:
+    with open('classrooms.html', 'wb') as f:
         f.write(page)
 
 
 def load_classrooms_page():
-    with open('classrooms.html') as f:
+    with open('classrooms.html', 'rb') as f:
         return f.read()
 
 
@@ -53,5 +53,8 @@ def test_classrooms():
 
 
 if __name__ == '__main__':
-    test_free_classrooms()
+    # test_free_classrooms()
     # test_classrooms()
+    page = load_classrooms_page()
+    classrooms = parse_classrooms(page)
+    pprint(classrooms)

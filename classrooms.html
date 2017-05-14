@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html class="no-js">
+	<head>
+		<title>Ricerca Aule e Spazi</title>
+		<script type='text/javascript'>var jaf_js_LANG = 'IT';</script>
+<link rel="stylesheet" type="text/css" href="//xqueries.polimi.it/webcommons/assets/ateneo2014.css.jsp?v=4" />
+<link rel='stylesheet' href='https://xqueries.polimi.it/webcommons/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css' type='text/css' media='screen' />
+<script src='https://xqueries.polimi.it/webcommons/ajax/libs/jqueryui/1.10.4/ui.js.jsp?lang=IT&amp;tab=yes'></script> 
+<SCRIPT type="text/javascript">
+   $.ajaxSetup ({ /* non mettere in cache le richieste AJAX (server per IE6 e IE7) */
+      cache: false
+   });
+</SCRIPT>
+
+
+ <link rel="stylesheet" type="text/css" href="/spazi/custom.css" />
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#loading').remove();
+	});
+</script>
+	</head>
+	<body>
+		<div id="jafBodyContainer">
+			<div id="polijPageHeader">
+				<script type='text/javascript'>var jaf_js_LANG = 'IT';</script><table id="poliheader" >
+	<tr>
+		<td class="jaf-text-align-left td-logo-polimi" >
+			<a href="http://www.polimi.it" style="border: 0px none">
+				<img class="logo-polimi" alt="logo-polimi" src="//xqueries.polimi.it/webcommons/assets/logo_polimi_testo.png">
+			</a>
+			<div id="loading">
+				<strong>Loading... <img src='//xqueries.polimi.it/webcommons/assets/loading.gif' alt="" ></strong>
+			</div>
+		</td>
+            <td class="jaf-text-align-center info-DB" >
+		        
+                	
+		        
+            </td>
+			<td class="jaf-text-align-right info-utente" >
+				
+					
+				
+            </td>
+		</tr>
+</table>
+				
+	
+		
+	
+	<div id="policontext">
+		<nav class='nomeApp policontext-link' style="float: left; margin: auto 1em;" >
+			 
+			
+		</nav>
+		<div class="policontext-link">
+			<nav>
+				
+				
+					<span style="display:none" class="jaf-color-azzurro-scuro" >*</span>
+				
+				
+				
+			</nav>
+		</div>
+		<div class="jaf-float-clear" ></div>
+	</div>
+			</div>
+			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+<script type='text/javascript'>var jaf_js_LANG = 'IT';</script>
+<TABLE class="TablePage" style='border-spacing: 0;border-collapse: collapse;'>
+<TR class="TrPage">
+
+	
+
+<td class='LeftBar'  style='width:15%' >
+
+	
+	<br>
+
+	
+		
+			
+
+			
+		
+
+		
+	<TABLE class="TableCommand"  style='border-spacing:0; border-collapse:collapse;'><TR><TH class="HeadCommand">Funzioni disponibili</TH></TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="/spazi/spazi/controller/RicercaAula.do?evn_home=evento&jaf_currentWFID=main"  >Home</a></TD>
+</TR>
+</TABLE>
+
+	<br>
+
+	
+		
+			
+
+			
+		
+		
+			
+
+			
+		
+		
+			
+
+			
+		
+		
+			
+
+			
+		
+
+	<TABLE class="TableCommand"  style='border-spacing:0; border-collapse:collapse;'><TR><TH class="HeadCommand">Ricerche disponibili</TH></TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="/spazi/spazi/controller/RicercaAula.do?evn_ricerca_aula=evento&jaf_currentWFID=main"  >Ricerca aula</a></TD>
+</TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="/spazi/spazi/controller/RicercaAula.do?evn_ricerca_aule_libere=evento&jaf_currentWFID=main"  >Ricerca aule libere</a></TD>
+</TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="/spazi/spazi/controller/RicercaAula.do?evn_giornaliera=evento&jaf_currentWFID=main"  >Visualizzazione situazione giornaliera aule</a></TD>
+</TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="/spazi/spazi/controller/RicercaAula.do?evn_occupante=evento&jaf_currentWFID=main"  >Ricerca prenotazioni</a></TD>
+</TR>
+</TABLE>
+
+	<br>
+	
+		
+				
+				
+		
+	<TABLE class="TableCommand"  style='border-spacing:0; border-collapse:collapse;'><TR><TH class="HeadCommand">Collegamenti utili  </TH></TR>
+<TR>
+<TD class="BodyFunction"><a class="linkFunction" href="http://www.polimi.it/contattaci/orari-edifici-e-campus/"  >Orari apertura edifici e campus</a></TD>
+</TR>
+</TABLE>
+
+	<br>
+	<br>
+	
+		
+	<TABLE class='TableOut HelpTag' style='border-spacing:0; border-collapse:collapse;'>
+ <TR>
+<TD class="Head">Help</TD></TR>
+<TR>
+<TD class="Body">La disponibilità delle aule convegni e dipartimentali potrebbe non essere aggiornata.</TD>
+</TR>
+</TABLE>
+
+</TD>
+
+
+
+
+
+	<td class='CenterBar' >
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+	
+<div id="tab1335" class="tabs polij_tabs" >
+<ul><li><a href='#tab1335-0' >Ricerca aula</a></li></ul><div id="tab1335-0">		
+			<form  id="ricercaAvanzata" name="ricercaAvanzata" action="/spazi/spazi/controller/RicercaAula.do?jaf_currentWFID=main" enctype="multipart/form-data" method="get" ><input type="hidden" name="spazi___model___formbean___RicercaAvanzataAuleVO___postBack" value="true"><input type="hidden" name="spazi___model___formbean___RicercaAvanzataAuleVO___formMode" value="FILTER">
+				
+				<TABLE  class="BoxInfoCard" style='border-spacing: 0;border-collapse: collapse;'>
+
+					<INPUT type="hidden" name="default_event" value="evn_ricerca_aula_semplice" >
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+			
+									Sede
+							</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" style='width: 60%' >
+							<select name="spazi___model___formbean___RicercaAvanzataAuleVO___sede" id="spazi___model___formbean___RicercaAvanzataAuleVO___sede" class=""><option value="tutte">Tutte</option><option  value="COE">Como</option><option  value="CRG">Cremona</option><option  value="LCF">Lecco</option><option  value="MNI">Mantova</option><option  value="MIB">Milano Bovisa</option><option  value="MIA">Milano Città Studi</option><option  value="PCL">Piacenza</option></select><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___sede"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+							Sigla
+							<br>
+							<FONT SIZE="-2">anche solo parte iniziale</FONT>
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" style='width: 60%' >
+							<input  id="spazi___model___formbean___RicercaAvanzataAuleVO___sigla" class="" data-jaf-field-name="sigla" name="spazi___model___formbean___RicercaAvanzataAuleVO___sigla" size="12" type="text" value="eg" ><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___sigla"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+				
+							Categoria aula
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" style='width: 60%' >
+							<select name="spazi___model___formbean___RicercaAvanzataAuleVO___categoriaScelta" id="spazi___model___formbean___RicercaAvanzataAuleVO___categoriaScelta" class=""><option value="tutte">Non specificato</option><option  value="C">AULA CONVEGNI</option><option  value="D">AULA DIDATTICA</option><option  value="P">AULA DIPARTIMENTALE</option><option  value="M">AULA MAGNA</option><option  value="T">AULA MASTER</option><option  value="A">AULA STUDIO</option><option  value="S">LABORATORIO</option><option  value="L">LABORATORIO DIDATTICO</option><option  value="E">SPAZIO ESPOSITIVO</option></select><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___categoriaScelta"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+							
+							Tipologia aula
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" style='width: 60%' >
+							<select name="spazi___model___formbean___RicercaAvanzataAuleVO___tipologiaScelta" id="spazi___model___formbean___RicercaAvanzataAuleVO___tipologiaScelta" class=""><option value="tutte">Non specificato</option><option  value="A">ALTRO</option><option  value="D">DISEGNO</option><option  value="N">INFORMATIZZATA</option><option  value="F">PLATEA FRONTALE</option><option  value="S">STUDIO INDIVIDUALE</option></select><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___tipologiaScelta"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+			
+									Dipartimento
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" style='width: 60%' >
+							<select name="spazi___model___formbean___RicercaAvanzataAuleVO___iddipScelto" id="spazi___model___formbean___RicercaAvanzataAuleVO___iddipScelto" class=""><option value="tutti">Tutti</option><option  value="21">Dipartimento di Chimica, Materiali e Ingegneria Chimica "Giulio Natta"</option><option  value="26">Dipartimento di Energia</option><option  value="36">Dipartimento di Meccanica</option><option  value="29">Dipartimento di Ingegneria Gestionale</option><option  value="1289">Dipartimento Fittizio</option><option  value="27">Dipartimento di Fisica</option><option  value="777">Dipartimento di Architettura e Studi Urbani</option><option  value="778">Dipartimento di Design</option><option  value="779">Dipartimento di Elettronica, Informazione e Bioingegneria</option><option  value="780">Dipartimento di Ingegneria Civile e Ambientale</option><option  value="781">Dipartimento di Matematica</option><option  value="776">Dipartimento di Architettura, Ingegneria delle Costruzioni e Ambiente Costruito</option><option  value="782">Dipartimento di Scienze e Tecnologie Aerospaziali</option></select><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___iddipScelto"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+							<label  class="" for="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche">Solo aule con postazioni dotate di presa elettrica.</label>
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" >
+							<input  id="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche" class="" data-jaf-field-name="soloPreseElettriche" name="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche" type="checkbox" value="S" ><input type="hidden" id="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche_default" name="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche_default" value="N" ><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseElettriche"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard1" rowspan="1" colspan="1" style='width: 30%' >
+							<label  class="" for="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete">Solo aule con postazioni dotate di presa di rete.</label>
+						</TD>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="1" >
+							<input  id="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete" class="" data-jaf-field-name="soloPreseDiRete" name="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete" type="checkbox" value="S" ><input type="hidden" id="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete_default" name="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete_default" value="N" ><label class="formValidationErrorMessage" style="display:none;" for="spazi___model___formbean___RicercaAvanzataAuleVO___soloPreseDiRete"></label>
+						</TD>
+
+					</TR>
+
+					<TR>
+
+						<TD  class="ElementInfoCard2" rowspan="1" colspan="2" style='width: 100%' >
+						
+						<FONT SIZE="-2">Impostare almeno un filtro</FONT>
+						</TD>
+
+					</TR>
+
+				</TABLE>
+
+				
+				<input type="submit" value="Ricerca aula" name="evn_ricerca_avanzata" />
+				
+				<input type="submit" value="Pulisci ricerca" name="evn_init_avanzata" />
+			</form>
+ 	</div><noscript><br><br></noscript></div>
+<SCRIPT type="text/javascript">
+	$(document).ready(function () {
+		$('#tab1335').tabs({
+				selected: 1,
+				active: 1,
+				dummy: 0});
+		jaf_tabsactivate('tab1335');
+	});
+</SCRIPT>
+
+
+
+		<br>
+		
+					
+
+
+<div id='div_table_aule' class='div-content-table'  >
+
+<h4 class='titleTableRecordSet'>Risultano 7 aule corrispondenti ai criteri di filtro!</h4>
+
+<table class='TableDati' id='aule' >
+<thead>
+
+
+	
+
+	 
+           
+	
+   
+   	
+
+	
+   
+  	
+
+<tr class='elenco-campi'><th  class='HeadColumn1' width='25%'> <a class='LinkColumn' href="/spazi/spazi/controller/RicercaAula.do?evn_orderby=evento&collectionId=aule&orderColumn=sedePO/nome&recordset_metainfo_id=aule_RECORDSET_METAINFO____RicercaAula___aule&screenName=/RicercaAula&freezecount=true&jaf_currentWFID=main">Dove</a>
+</th>
+<th  class='HeadColumn1' width='15%'> <a class='LinkColumn' href="/spazi/spazi/controller/RicercaAula.do?evn_orderby=evento&collectionId=aule&orderColumn=XSiglaDenominazione&recordset_metainfo_id=aule_RECORDSET_METAINFO____RicercaAula___aule&screenName=/RicercaAula&freezecount=true&jaf_currentWFID=main">Sigla</a>
+</th>
+<th  class='HeadColumn1' width='8%'>Dettagli</th>
+<th  class='HeadColumn1' width='13%'> <a class='LinkColumn' href="/spazi/spazi/controller/RicercaAula.do?evn_orderby=evento&collectionId=aule&orderColumn=categoriaDV&recordset_metainfo_id=aule_RECORDSET_METAINFO____RicercaAula___aule&screenName=/RicercaAula&freezecount=true&jaf_currentWFID=main">Categoria</a>
+</th>
+<th  class='HeadColumn1' width='13%'> <a class='LinkColumn' href="/spazi/spazi/controller/RicercaAula.do?evn_orderby=evento&collectionId=aule&orderColumn=tipologiaDV&recordset_metainfo_id=aule_RECORDSET_METAINFO____RicercaAula___aule&screenName=/RicercaAula&freezecount=true&jaf_currentWFID=main">Tipologia</a>
+</th>
+<th  class='HeadColumn1' width='26%'> <a class='LinkColumn' href="/spazi/spazi/controller/RicercaAula.do?evn_orderby=evento&collectionId=aule&orderColumn=xdipartimento&recordset_metainfo_id=aule_RECORDSET_METAINFO____RicercaAula___aule&screenName=/RicercaAula&freezecount=true&jaf_currentWFID=main">Dipartimento</a>
+</th>
+</tr>
+</thead>
+<tbody class='TableDati-tbody'>
+<tr class='dispari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.1</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=19&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		PLATEA FRONTALE
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='pari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.2</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=21&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		PLATEA FRONTALE
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='dispari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.3</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=22&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		PLATEA FRONTALE
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='pari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.4</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=23&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		PLATEA FRONTALE
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='dispari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.6</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=25&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		PLATEA FRONTALE
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='pari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.7</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=1541&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		INFORMATIZZATA
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr>
+<tr class='dispari '>
+
+
+	<td  class='TestoSX Dati1'>
+
+	    Milano Città Studi,<br>
+	    Via Bassini
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		<b>E.G.8</b>
+    </td>
+ 
+           
+	<td  class='Dati1'>
+
+		
+			
+		    
+		<a class='Link' href='Aula.do?evn_init=event&idaula=67&jaf_currentWFID=main' >
+ 
+			    Vedi dettagli
+			</a>
+
+    </td>
+
+   
+   	<td  class='TestoSX Dati1'>
+
+   		AULA DIDATTICA
+    </td>
+
+
+	<td  class='TestoSX Dati1'>
+
+		INFORMATIZZATA
+    </td>
+
+   
+  	<td  class='TestoSX Dati1'>
+
+	    -
+    </td>
+
+
+</tr></tbody>
+</table>
+<div class='div-float-clear'></div>
+</div>
+
+
+		
+	</TD>
+
+	
+</TR>
+</TABLE>
+
+
+
+
+			
+                
+		
+		
+		
+		
+	
+    
+
+
+<table class="polifooter">
+	<tfoot class="tfoot-tablePage">
+    	<tr>
+    		<td >
+    			<div class="jaf-text-align-left">
+	   				 spazi v. 1.5.9 / 1.5.9
+	   			</div>
+    		</td>
+    		<td>
+    			<div class="jaf-text-align-center">
+					Area Servizi ICT
+    			</div>
+    		</td>
+    		<td>
+    			<div class="jaf-text-align-right" id="div-tfoot-tablePage-centerBar">
+    				14/05/2017
+    			</div>
+    		</td>
+	   	</tr>
+    </tfoot>
+</table>
+		</div>
+	</body>
+</html>
