@@ -3,7 +3,7 @@ from pprint import pprint
 from joblib import Memory
 
 from queries import query_free_classrooms, query_classrooms_list
-from parsers import parse_classroom_list
+from parsers import parse_classroom_list, parse_classroom
 
 
 memory = Memory(cachedir='cache')
@@ -47,6 +47,11 @@ def load_classroom_list():
         return f.read()
 
 
+def load_classroom():
+    with open('classroom.html', 'rb') as f:
+        return f.read()
+
+
 def test_classroom_list():
     classrooms = get_classroom_list('eg')
     pprint(classrooms)
@@ -55,6 +60,6 @@ def test_classroom_list():
 if __name__ == '__main__':
     # test_free_classrooms()
     # test_classrooms()
-    page = load_classroom_list()
-    classrooms = parse_classroom_list(page)
+    page = load_classroom()
+    classrooms = parse_classroom(page)
     pprint(classrooms)
