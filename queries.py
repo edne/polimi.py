@@ -97,3 +97,12 @@ def query_classrooms_list(name_to_query):
 
     r = requests.get(url, headers=make_headers(), params=params)
     return r.text
+
+
+def query_classroom(classroom_id):
+    url = 'https://www7.ceda.polimi.it/spazi/spazi/controller/Aula.do'
+    params = {
+        'idaula': classroom_id
+    }
+    r = requests.get(url, headers=make_headers(), params=params)
+    return r.text

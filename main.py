@@ -2,7 +2,8 @@ from datetime import date, time
 from pprint import pprint
 from joblib import Memory
 
-from queries import query_free_classrooms, query_classrooms_list
+from queries import query_free_classrooms, query_classrooms_list,\
+                    query_classroom
 from parsers import parse_classroom_list, parse_classroom
 
 
@@ -18,9 +19,16 @@ def get_free_classrooms(date, time_from, time_to):
 
 @memory.cache
 def get_classroom_list(name_to_query):
-    page = query_classrooms_list('eg')
+    page = query_classrooms_list(name_to_query)
     classrooms = parse_classroom_list(page)
     return classrooms
+
+
+@memory.cache
+def get_classroom(classroom_id):
+    page = query_classroom(classroom_id)
+    info = parse_classroom(page)
+    return info
 
 
 def test_free_classrooms():
@@ -60,6 +68,8 @@ def test_classroom_list():
 if __name__ == '__main__':
     # test_free_classrooms()
     # test_classrooms()
-    page = load_classroom()
-    classrooms = parse_classroom(page)
-    pprint(classrooms)
+
+    # page = load_classroom()
+    # info = parse_classroom(page)
+    info = get_classroom(20)
+    pprint(info)

@@ -2,10 +2,6 @@ from bs4 import BeautifulSoup
 import re
 
 
-def get_cols(row):
-    return row.find_all('td')
-
-
 def parse_col(col):
     text = col.text
     text = text.split()
@@ -13,23 +9,23 @@ def parse_col(col):
     return text
 
 
-def get_classroom_id(row):
+def parse_classroom_id(row):
     a, = row.find_all('a')
     href = a['href']
     return re.search('(?<=idaula=)\d+', href).group(0)
 
 
-def get_classroom(row):
-    cols = get_cols(row)
+def parse_classroom_info(row):
+    cols = row.find_all('td')
 
-    classrom_id = get_classroom_id(row)
+    classroom_id = parse_classroom_id(row)
 
     parsed = [parse_col(col) for col in cols]
     where, name, details, category, type_, department = parsed
 
     return {'where': where,
             'name': name,
-            'id': classrom_id,
+            'id': classroom_id,
             'category': category,
             'type': type_,
             'department': department}
@@ -39,9 +35,9 @@ def parse_classroom_list(page):
     soup = BeautifulSoup(page, 'html.parser')
     rows = soup.find_all('tr')
 
-    classrooms = [get_classroom(row)
+    classrooms = [parse_classroom_info(row)
                   for row in rows
-                  if len(get_cols(row)) == 6]
+                  if len(row.find_all('td')) == 6]
     return classrooms
 
 
