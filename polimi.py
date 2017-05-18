@@ -4,7 +4,8 @@ from queries import query_free_classrooms, query_classrooms_list,\
 from parsers import parse_classroom_list, parse_classroom
 
 
-memory = Memory(cachedir='cache')
+# TODO: toggle verbosity for debug mode
+memory = Memory(cachedir='cache', verbose=0)
 
 
 @memory.cache
