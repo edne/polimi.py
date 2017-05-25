@@ -1,7 +1,7 @@
 from joblib import Memory
-from queries import query_free_classrooms, query_classrooms_list,\
-                    query_classroom
-from parsers import parse_classroom_list, parse_classroom
+from .queries import query_free_classrooms, query_classrooms_list,\
+                     query_classroom
+from .parsers import parse_classroom_list, parse_classroom
 
 
 # TODO: toggle verbosity for debug mode

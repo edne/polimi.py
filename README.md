@@ -35,7 +35,7 @@ Output example:
 ```
 
 ### As library
-Read [polimi.py](polimi.py) source.
+Read the [source](polimi/__init__.py).
 
 
 ## Contributing
