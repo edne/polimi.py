@@ -8,10 +8,12 @@ from parsers import parse_classroom_list, parse_classroom
 memory = Memory(cachedir='cache', verbose=0)
 
 
-@memory.cache
+# @memory.cache  # do not cache for now because sometimes the server reply []
 def get_free_classrooms(date, time_from, time_to):
     page = query_free_classrooms(date, time_from, time_to)
     classrooms = parse_classroom_list(page)
+    ids = [c['id'] for c in classrooms]
+    classrooms = [get_classroom(id_) for id_ in ids]
     return classrooms
 
 
