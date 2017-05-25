@@ -49,8 +49,7 @@ If you need a feature feel free to open an issue.
 
 ## Acknowledgements and license
 
-Based on the work of @TopoDiFogna in his
-[https://github.com/TopoDiFogna/poli_telegram_bot](Telegram bot).
+Based on the work of @TopoDiFogna in his [Telegram bot](https://github.com/TopoDiFogna/poli_telegram_bot).
 
 
 Released under the terms of [GNU Affero General Public
