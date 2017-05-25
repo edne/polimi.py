@@ -10,9 +10,10 @@ def test_free_classrooms():
     time_to = time(11, 15)
 
     classrooms = get_free_classrooms(day, time_from, time_to)
-    if not classrooms:
-        # TODO: handle invalid server response
-        get_free_classrooms.clear()
+    # Delete cache in case of server fail: (now that function is not cached)
+    # if not classrooms:
+    #     # TODO: handle invalid server response
+    #     get_free_classrooms.clear()
 
     pprint(classrooms)
 
@@ -39,7 +40,7 @@ def test_classroom_list():
 
 
 if __name__ == '__main__':
-    # test_free_classrooms()
+    test_free_classrooms()
     # test_classrooms()
 
     # page = load_classroom()
