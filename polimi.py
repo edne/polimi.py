@@ -12,8 +12,8 @@ memory = Memory(cachedir='cache', verbose=0)
 def get_free_classrooms(date, time_from, time_to):
     page = query_free_classrooms(date, time_from, time_to)
     classrooms = parse_classroom_list(page)
-    ids = [c['id'] for c in classrooms]
-    classrooms = [get_classroom(id_) for id_ in ids]
+    # ids = [c['id'] for c in classrooms]
+    # classrooms = [get_classroom(id_) for id_ in ids]
     return classrooms
 
 
@@ -21,6 +21,8 @@ def get_free_classrooms(date, time_from, time_to):
 def get_classroom_list(name_to_query):
     page = query_classrooms_list(name_to_query)
     classrooms = parse_classroom_list(page)
+    # ids = [c['id'] for c in classrooms]
+    # classrooms = [get_classroom(id_) for id_ in ids]
     return classrooms
 
 
